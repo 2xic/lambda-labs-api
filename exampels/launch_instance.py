@@ -1,6 +1,5 @@
-from cli.Lambda import Lambda
-from cli.objects.RequestInstance import RequestInstance
-from cli.objects.RequestTerminateInstances import RequestTerminateInstances
+from lambda_cli.cli.Lambda import Lambda
+from lambda_cli.cli.objects.Request.RequestInstance import RequestInstance
 
 cli = Lambda()
 response = cli.get_offered_instances()
@@ -16,13 +15,7 @@ request = RequestInstance(
     ssh_keys=["cloud"]
 )
 print(request)
-#cli.launch_instance(
-#    request
-#)
-print(cli.get_running_instances())
-cli.stop_instances(
-    RequestTerminateInstances([])   
-)
 
-cli.stop_all_instances()
-
+print(cli.launch_instance(
+    request
+))

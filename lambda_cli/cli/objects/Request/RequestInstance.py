@@ -1,5 +1,5 @@
-from .Region import Region
-from .Instance import Instance
+from ..Response.Region import Region
+from ..Response.Instance import Instance
 
 class RequestInstance:
     def __init__(
@@ -24,3 +24,6 @@ class RequestInstance:
             "file_system_names": self.file_system_names,
             "quantity": self.quantity
         }
+
+    def __repr__(self):
+        return self.payload()

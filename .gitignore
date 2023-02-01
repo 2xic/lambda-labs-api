@@ -1,3 +1,4 @@
 .env
 __pycache__
 database.json
+lambda_cli.egg-info

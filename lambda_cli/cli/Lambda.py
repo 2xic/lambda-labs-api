@@ -41,10 +41,13 @@ class Lambda:
         json = self.requester.post(
             "instance-operations/terminate",
             request.payload()
-        )
+        )   
         return list(map(TerminatedInstances, json["data"]['terminated_instances']))
 
     # stops the instances tracked by the cli
     def stop_all_instances(self):
         ids = self.database.read()
-        self.database.remove_instance(self.stop_instances(RequestTerminateInstances(ids)))
+        response = self.stop_instances(RequestTerminateInstances(ids))
+        self.database.remove_instance(response)
+
+        return response
